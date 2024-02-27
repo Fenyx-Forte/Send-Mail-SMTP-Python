@@ -29,11 +29,11 @@ def main() -> None:
     # Email setup
     subject = "Veja o meu portfólio"
     sender_email = env_vars.SENDER_EMAIL
-    receivers_email = env_vars.RECEIVERS_EMAIL
+    receiver_email = env_vars.RECEIVER_EMAIL
     attachment = None
 
     email_setup = mail.EmailSetup(
-        subject, sender_email, receivers_email, txt_body, html_body, attachment
+        subject, sender_email, receiver_email, txt_body, html_body, attachment
     )
 
     # Send email

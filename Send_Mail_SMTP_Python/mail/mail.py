@@ -9,14 +9,14 @@ class EmailSetup:
         self,
         subject: str,
         sender: str,
-        receivers: list[str],
+        receiver: str,
         txt_body: MIMEText,
         html_body: MIMEText,
         attachment: MIMEBase = None,
     ):
         self.subject = subject
         self.sender = sender
-        self.receivers = receivers
+        self.receiver = receiver
         self.txt_body = txt_body
         self.html_body = html_body
         self.attachment = attachment
@@ -27,7 +27,7 @@ def create_email(email_setup: EmailSetup) -> MIMEMultipart:
 
     email["Subject"] = email_setup.subject
     email["From"] = email_setup.sender
-    email["To"] = email_setup.receivers
+    email["To"] = email_setup.receiver
 
     email.attach(email_setup.txt_body)
     email.attach(email_setup.html_body)
@@ -41,8 +41,8 @@ def create_email(email_setup: EmailSetup) -> MIMEMultipart:
 def send_email(connection: smtplib.SMTP, email_setup: EmailSetup) -> None:
     email = create_email(email_setup)
 
-    message = email.to_string()
+    message = email.as_string()
 
-    connection.sendmail(email_setup.sender, email_setup.receivers, message)
+    connection.sendmail(email_setup.sender, email_setup.receiver, message)
 
     print("Email sent successfully!")
