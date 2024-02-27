@@ -12,15 +12,15 @@ def main() -> None:
     connection_setup = m_connection.ConectionSetup(server, port, login, password)
 
     # Email body setup
-    name = "Lucas"
+    title = "Fenyx Forte - Analista de Dados Jr"
     link = "https://fenyx-forte.github.io/"
 
     filename_template_txt = "email.txt"
     filename_template_html = "email.html"
-    filename_style = "style_1.txt"
+    filename_style = "style.css"
 
     list_email_body = template.create_email_body(
-        filename_template_txt, filename_template_html, filename_style, name, link
+        filename_template_txt, filename_template_html, filename_style, title, link
     )
 
     txt_body = list_email_body[0]

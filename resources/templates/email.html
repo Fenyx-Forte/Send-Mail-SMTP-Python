@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <link rel="stylesheet" type="text/css" hs-webfonts="true" href="https://fonts.googleapis.com/css?family=Lato|Lato:i,b,bi">
+    <title>{{ title }} </title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{style}}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {{ style_css }}
 </head>
 <body>
-<div id="email">
-    <table>
-        <tr>
-            <td>
-                <h1> Olá, {{ name }}</h1>
-            </td>
-        </tr>
-    </table>
-    <table>
-        <tr>
-            <td>
-                <h2>Veja o meu portfólio</h2>
-                <p>
-                    Clique <a href="{{ link }}" target="_blank" rel="noreferrer">
-                        aqui
-                    </a> para acessar o meu portfólio.
-                </p>
-            </td>
-        </tr>
-    </table>
-</div>
+    <div>
+        <p>
+            Olá.
+            <br><br>
+            Eu sou Fenyx Forte, Analista de Dados Jr.
+            <br><br>
+            Veja o meu portfólio <a href="{{ link }}" target="_blank" rel="noreferrer">aqui</a>.
+            <br><br>
+            Atenciosamente,
+            <br/>
+            Fenyx Forte.
+        </p>
+    </div>
 </body>
 </html>

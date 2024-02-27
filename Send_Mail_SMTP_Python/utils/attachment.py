@@ -2,6 +2,10 @@ from email import encoders
 from email.mime.base import MIMEBase
 
 
+# Accepts:
+# - images
+# - documents
+# - any binary data
 def create_attachment(filename: str) -> MIMEBase:
     # Open PDF file in binary mode
     with open(filename, "rb") as file:
