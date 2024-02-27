@@ -1,0 +1,14 @@
+<style type="text/css">
+    h1{
+        font-size:56px}
+    h2{
+        font-size:28px;
+        font-weight:900}
+    p{
+        font-weight:100}
+    td{
+        vertical-align:top}
+    #email{
+        margin:auto;width:600px;
+        background-color:#fff}
+</style>

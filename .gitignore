@@ -1,5 +1,5 @@
-# Text files
-*.txt
+# Text files in root folder
+/*.txt
 
 # Environments
 .env
