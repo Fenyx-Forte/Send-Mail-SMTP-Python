@@ -27,7 +27,7 @@ def main() -> None:
     html_body = list_email_body[1]
 
     # Email setup
-    subject = "Veja o meu portfólio"
+    subject = title
     sender_email = env_vars.SENDER_EMAIL
     receiver_email = env_vars.RECEIVER_EMAIL
     attachment = None
