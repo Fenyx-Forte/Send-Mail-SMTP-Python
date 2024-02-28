@@ -37,5 +37,5 @@ def main() -> None:
     )
 
     # Send email
-    with m_connection.create_smtp_connection(connection_setup) as connection:
+    with m_connection.SMTPConnection(connection_setup) as connection:
         mail.send_email(connection, email_setup)

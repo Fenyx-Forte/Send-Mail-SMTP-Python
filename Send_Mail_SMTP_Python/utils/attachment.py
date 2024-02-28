@@ -7,6 +7,15 @@ from email.mime.base import MIMEBase
 # - documents
 # - any binary data
 def create_attachment(filename: str) -> MIMEBase:
+    """This function receives a file and returns an object that can be attached
+    to an email.
+
+    Args:
+        filename (str): filename (images, documents, binary data)
+
+    Returns:
+        MIMEBase: attachment
+    """
     # Open PDF file in binary mode
     with open(filename, "rb") as file:
         # Add file as application/octet-stream
