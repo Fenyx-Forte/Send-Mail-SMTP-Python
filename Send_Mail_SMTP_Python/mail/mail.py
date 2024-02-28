@@ -75,4 +75,4 @@ def send_email(connection: smtplib.SMTP, email_setup: EmailSetup) -> None:
 
     connection.sendmail(email_setup.sender, email_setup.receiver, message)
 
-    print("Email sent successfully!/n")
+    print("Email sent successfully!\n")

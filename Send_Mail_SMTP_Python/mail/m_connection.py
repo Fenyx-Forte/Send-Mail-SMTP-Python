@@ -47,7 +47,7 @@ class SMTPConnection:
 
         self.connection = create_smtp_connection(self.setup)
 
-        print("Connection established!/n")
+        print("Connection established!\n")
 
         return self.connection
 
@@ -62,7 +62,7 @@ class SMTPConnection:
 
         print("Closing connection...")
         self.connection.close()
-        print("Connection closed!/n")
+        print("Connection closed!\n")
 
 
 def create_smtp_connection(connection_setup: ConnectionSetup) -> smtplib.SMTP:
