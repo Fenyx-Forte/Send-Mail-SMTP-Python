@@ -9,7 +9,7 @@ def main() -> None:
     login = env_vars.LOGIN
     password = env_vars.PASSWORD
 
-    connection_setup = m_connection.ConectionSetup(server, port, login, password)
+    connection_setup = m_connection.ConnectionSetup(server, port, login, password)
 
     # Email body setup
     title = "Fenyx Forte - Analista de Dados Jr"
