@@ -1,5 +1,12 @@
+import logging
 import smtplib
 import ssl
+
+from Send_Mail_SMTP_Python.my_log import my_log
+
+module_name = __name__.split('.')[-1]
+
+logger = logging.getLogger(module_name)
 
 
 class ConnectionSetup:
@@ -7,6 +14,7 @@ class ConnectionSetup:
     smtp connection.
     """
 
+    @my_log.debug_log(logger)
     def __init__(self, server: str, port: int, login: str, password: str) -> None:
         """Initialize a new instance.
 
@@ -26,6 +34,7 @@ class ConnectionSetup:
 class SMTPConnection:
     """This class serves as a context manager for SMTP connections."""
 
+    @my_log.debug_log(logger)
     def __init__(self, connection_setup: ConnectionSetup) -> None:
         """Initialize a new instance.
 
@@ -36,6 +45,7 @@ class SMTPConnection:
         self.setup = connection_setup
         self.connection = None
 
+    @my_log.debug_log(logger)
     def __enter__(self) -> smtplib.SMTP:
         """Create a smtp connection instance
 
@@ -43,14 +53,15 @@ class SMTPConnection:
             smtplib.SMTP: smtp connection
         """
 
-        print("Connecting to smtp server...")
+        logger.info('Connecting to smtp server...')
 
         self.connection = create_smtp_connection(self.setup)
 
-        print("Connection established!\n")
+        logger.info('Connection established!')
 
         return self.connection
 
+    @my_log.debug_log(logger)
     def __exit__(self, exc_type, exc_val, exc_tb) -> None:
         """Close the smtp connection instance
 
@@ -60,11 +71,12 @@ class SMTPConnection:
             exc_tb (_type_): exception traceback
         """
 
-        print("Closing connection...")
+        logger.info('Closing connection...')
         self.connection.close()
-        print("Connection closed!\n")
+        logger.info('Connection closed!')
 
 
+@my_log.debug_log(logger)
 def create_smtp_connection(connection_setup: ConnectionSetup) -> smtplib.SMTP:
     """Create a smtp connection instance
 
