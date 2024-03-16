@@ -1,6 +1,7 @@
 import logging
 from email import encoders
 from email.mime.base import MIMEBase
+from pathlib import Path
 
 from Send_Mail_SMTP_Python.my_log import my_log
 
@@ -24,8 +25,11 @@ def create_attachment(filename: str) -> MIMEBase:
     Returns:
         MIMEBase: attachment
     """
+
+    path = Path(filename).resolve()
+
     # Open PDF file in binary mode
-    with open(filename, 'rb') as file:
+    with open(path, 'rb') as file:
         # Add file as application/octet-stream
         # Email client can usually download this automatically as attachment
         attachment = MIMEBase('application', 'octet-stream')

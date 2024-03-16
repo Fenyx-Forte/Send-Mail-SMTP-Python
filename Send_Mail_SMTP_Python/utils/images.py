@@ -1,5 +1,6 @@
 import logging
 from email.mime.image import MIMEImage
+from pathlib import Path
 
 from Send_Mail_SMTP_Python.my_log import my_log
 
@@ -23,7 +24,10 @@ def embedded_image(filename: str) -> MIMEImage:
     Returns:
         MIMEImage: embedded image
     """
-    with open(f'resources/images/{filename}', 'rb') as file:
+
+    path = Path(f'resources/images/{filename}').resolve()
+
+    with open(path, 'rb') as file:
         image = MIMEImage(file.read())
 
     image.add_header('Content-Disposition', f'inline; filename={filename}')

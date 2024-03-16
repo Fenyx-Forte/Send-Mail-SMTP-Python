@@ -1,5 +1,6 @@
 import logging
 from email.mime.text import MIMEText
+from pathlib import Path
 
 from jinja2 import Template
 
@@ -21,7 +22,8 @@ def get_content_file(path_file: str) -> str:
         str: file content
     """
 
-    with open(path_file, 'r') as file:
+    path = Path(path_file).resolve()
+    with open(path, 'r') as file:
         content = file.read()
 
     return content
