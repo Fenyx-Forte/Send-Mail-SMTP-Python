@@ -20,10 +20,6 @@ def test_embedded_image():
 
     embedded_image = images.embedded_image(filename)
 
-    assert isinstance(
-        embedded_image, MIMEImage
-    ), 'The function should return a MIMEImage object.'
+    assert isinstance(embedded_image, MIMEImage)
 
-    assert (
-        embedded_image['Content-Disposition'] == f'inline; filename={filename}'
-    ), "The function should set the 'Content-Disposition' header correctly."
+    assert embedded_image['Content-Disposition'] == f'inline; filename={filename}'
